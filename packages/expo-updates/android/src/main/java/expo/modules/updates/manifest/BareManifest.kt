@@ -86,7 +86,7 @@ class BareManifest private constructor(override val rawManifestJson: BareRawMani
         @Throws(JSONException::class)
         fun fromManifestJson(rawManifest: BareRawManifest, configuration: UpdatesConfiguration): BareManifest {
             val id = UUID.fromString(rawManifest.getID())
-            val commitTime = Date(rawManifest.getCommitTime())
+            val commitTime = Date(rawManifest.getCommitTimeLong())
             val runtimeVersion = UpdatesUtils.getRuntimeVersion(configuration)
             val metadata = rawManifest.getMetadata()
             val assets = rawManifest.getAssets()
